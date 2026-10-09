@@ -6,5 +6,5 @@
 //
 // Example: "https://codex-queue-12345-default-rtdb.firebaseio.com"
 window.CODEX_QUEUE_CONFIG = {
-  databaseURL: "",
+  databaseURL: "https://codex-circlejerk-default-rtdb.asia-southeast1.firebasedatabase.app",
 };
