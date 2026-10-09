@@ -1,4 +1,4 @@
-# codex queue
+# codex-circlejerk
 
 A tiny booking site for four people sharing one Codex account: Sanchay, Hars, Assank, Abinov.
 
@@ -38,14 +38,14 @@ Anyone who knows your site URL can technically write to the database. For a priv
 ```bash
 git init
 git add .
-git commit -m "codex queue"
+git commit -m "codex-circlejerk"
 git branch -M main
-git remote add origin https://github.com/<you>/codex-queue.git
+git remote add origin https://github.com/<you>/codex-circlejerk.git
 git push -u origin main
 ```
 
 Then in the repo: **Settings → Pages → Build and deployment → Deploy from a branch → `main` / `(root)`**.
-Your site will be at `https://<you>.github.io/codex-queue/`. Share that link in the group chat.
+Your site will be at `https://<you>.github.io/codex-circlejerk/`. Share that link in the group chat.
 
 ## Run locally
 
