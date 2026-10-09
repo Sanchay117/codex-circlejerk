@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Codex Queue</title>
+  <meta name="description" content="Who's on the shared Codex account, who's next, and who burned the limit.">
+  <meta name="theme-color" content="#07070c">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b5cf6'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpath d='M18 22l14 10-14 10M36 44h14' fill='none' stroke='white' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i></div>
+
+  <header class="top">
+    <div class="brand">
+      <span class="logo">&gt;_</span>
+      <div>
+        <strong>codex queue</strong>
+        <small>one account, four gremlins</small>
+      </div>
+    </div>
+    <div class="top-r">
+      <button class="pill" id="syncPill" data-act="sync" title=""><i></i><span>connecting</span></button>
+      <button class="me" id="meBtn" data-act="switch" title="Switch who you are"></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero free" id="status" aria-live="polite"></section>
+
+    <section class="grid">
+      <div class="card" id="bookCard">
+        <div class="card-h"><h2>Book a slot</h2><span class="hint" id="whoLabel"></span></div>
+
+        <label class="lbl">Start</label>
+        <div class="seg" id="modeSeg">
+          <button type="button" data-mode="now" class="on">Right now</button>
+          <button type="button" data-mode="later">Schedule</button>
+        </div>
+        <input type="datetime-local" id="startInput" class="inp" hidden>
+
+        <label class="lbl">How long <em>(one Codex window = 5h)</em></label>
+        <div class="chips" id="durChips">
+          <button type="button" data-h="0.5">30m</button>
+          <button type="button" data-h="1">1h</button>
+          <button type="button" data-h="2" class="on">2h</button>
+          <button type="button" data-h="3">3h</button>
+          <button type="button" data-h="4">4h</button>
+          <button type="button" data-h="5">5h</button>
+        </div>
+
+        <label class="lbl" for="note">What are you cooking? <em>(optional)</em></label>
+        <input type="text" id="note" class="inp" maxlength="60" placeholder="refactor, bug hunt, vibe-coding...">
+
+        <div class="preview" id="preview"></div>
+        <button type="button" class="btn primary big" id="bookBtn">Lock it in</button>
+      </div>
+
+      <div class="card" id="queueCard">
+        <div class="card-h"><h2>The queue</h2><span class="hint" id="queueCount"></span></div>
+        <ul class="queue" id="queue"></ul>
+      </div>
+    </section>
+
+    <section class="card" id="tlCard">
+      <div class="card-h">
+        <h2>Timeline</h2>
+        <div class="daynav">
+          <button type="button" class="icon" data-act="dayprev" aria-label="Previous day">‹</button>
+          <button type="button" class="day" data-act="daytoday" id="dayLabel">Today</button>
+          <button type="button" class="icon" data-act="daynext" aria-label="Next day">›</button>
+        </div>
+      </div>
+      <div class="tl-scroll"><div class="tl" id="timeline"></div></div>
+      <p class="tl-tip">Tap an empty spot on your row to schedule from there. Hatched red = limit burned, nobody can use it.</p>
+    </section>
+
+    <section class="card" id="statsCard">
+      <div class="card-h"><h2>Leaderboard</h2><span class="hint">last 7 days</span></div>
+      <div class="stats" id="stats"></div>
+    </section>
+  </main>
+
+  <footer>made for the four of us &middot; times shown in your local timezone</footer>
+
+  <div id="modal" class="modal" hidden></div>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
