@@ -4,7 +4,7 @@
   /* ---------- config ---------- */
   const PEOPLE = [
     { id: 'sanchay', name: 'Sanchay', color: '#a78bfa' },
-    { id: 'hars',    name: 'Hars',    color: '#a3e635' },
+    { id: 'bars',    name: 'Bars',    color: '#a3e635' },
     { id: 'assank',  name: 'Assank',  color: '#fb923c' },
     { id: 'abinov',  name: 'Abinov',  color: '#22d3ee' },
   ];

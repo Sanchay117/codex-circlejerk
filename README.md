@@ -1,6 +1,6 @@
 # codex-circlejerk
 
-A tiny booking site for four people sharing one Codex account: Sanchay, Hars, Assank, Abinov.
+A tiny booking site for four people sharing one Codex account: Sanchay, Bars, Assank, Abinov.
 
 - See who is on Codex right now, with a live countdown (the tab title shows it too)
 - Book "right now" or schedule a slot (30m to 5h), clashes are blocked
